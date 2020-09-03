@@ -1,17 +1,19 @@
-import React,{useState, useEffect} from 'react';
+import React,{ useState, useEffect } from 'react';
 import Post from './Components/Post'
 import './App.css';
-import {db} from './firebase'
+// import { db }  from './firebase'
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    db.collection('posts').onSnapshot(snapshot => {
-      setPosts(snapshot.docs.map(doc => doc.data()));
-    })
-  }, [] );
+  //   db.collection('posts').onSnapshot(snapshot => {
+  //     setPosts(snapshot.docs.map(doc => ({
+  //       id: doc.id,
+  //       post: doc.data()})));
+  //   })
+  // }, []);
 
   return (
     <div className="App">
@@ -23,6 +25,12 @@ function App() {
       </div>
 
       {/* Posts */}
+
+      {/* {
+        posts.map(({id, post}) => ( 
+          <Post key={id} username={post.username} caption={post.caption} imgURL={post.imgURL} />
+        ))
+      } */}
 
         <Post 
           username="aanurag_23"
